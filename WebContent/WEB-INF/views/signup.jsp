@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>Sign Up</title>
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -24,15 +24,38 @@
 
 	<div class="collapse navbar-collapse " id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto ">
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Signup
+			<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Sign up
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signin">Signin</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signin">Sign in</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
 			</li>	
 		</ul>
 	</div>
 	</nav> 
 	</section>
+	<div class="container">
+	<h1>Sign Up</h1>
+	<hr>
+	<form:form method="post" modelAttribute="user">
+	<div class="form-group">
+	<form:label for="username" path="username">Username</form:label>
+	<form:input path="username" id="username" cssClass="form-control" type="text"/>
+	</div>
+	<div class="form-group">
+	<form:label for="email" path="email">Email</form:label>
+	<form:input path="email" id="email" cssClass="form-control" type="email"/>
+	</div>
+	<div class="form-group">
+	<form:label for="password" path="password">Password</form:label>
+	<form:input path="password" id="password" cssClass="form-control" type="password"/>
+	</div>
+	<br>
+	<button type="submit" class="btn btn-success">Sign Up</button>
+	
+	
+	</form:form>
+	
+	</div>
 
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
