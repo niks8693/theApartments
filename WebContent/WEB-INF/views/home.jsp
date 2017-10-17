@@ -36,6 +36,8 @@
 	<h1>Welcome to The Apartments..</h1>
 	<p>View your next Dream Home</p>
 	<p>${username}</p>
+	<br>
+	<a href="${pageContext.request.contextPath}/newapartment"><button type="button" class="btn btn-primary">Add new Apartment</button></a>
 	</div>
 	
 	</div>
