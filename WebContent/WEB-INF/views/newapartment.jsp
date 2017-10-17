@@ -37,6 +37,7 @@
 	<h1>Add New Apartment</h1>
 	<hr>
 	<form:form method="post" modelAttribute="apartment">
+	
 	<div class="form-group">
 	<form:label for="title" path="title">Title</form:label>
 	<form:input path="title" id="title" cssClass="form-control" type="text"/>

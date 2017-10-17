@@ -10,4 +10,8 @@ public interface UserDao {
 
 	public boolean checkForDuplicateUsername(String checkUsername);
 
+	public User getUserByUsername(String apartmentUser);
+
+	public void updateUser(User user);
+
 }

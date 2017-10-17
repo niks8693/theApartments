@@ -64,4 +64,31 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
+	@Override
+	public User getUserByUsername(String apartmentUser) {
+		Session session=sessionFactory.getCurrentSession();
+		String hql="from User as u where u.username=?";
+		Query query=session.createQuery(hql);
+		query.setParameter(0, apartmentUser);
+		List<User> list=query.getResultList();
+		
+		if(list!=null && list.size()>0){
+			User user=list.get(0);
+			System.out.println("Apartment User found using getUserByUsername()-->"+user);
+			return user;
+		}
+		else{
+			return null;
+		}
+	}
+
+	@Override
+	public void updateUser(User user) {
+		Session session=sessionFactory.getCurrentSession();
+		System.out.println("Updating user from UserDao.updateUser()-->"+user.toString());
+		session.update(user);
+		System.out.println("User updated");
+		
+	}
+
 }

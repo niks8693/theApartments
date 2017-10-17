@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
+	<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +24,18 @@
 
 	<div class="collapse navbar-collapse " id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto ">
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Signup
-			</a></li>
+		<c:if test="${sessionScope.username!=null}">
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/">Logged User: ${username}</a></li>
+		</c:if>
+		<c:if test="${sessionScope.username==null}">
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Signup</a></li>
+		</c:if>
+		<c:if test="${sessionScope.username==null}">
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signin">Signin</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
-			</li>	
+		</c:if>
+		<c:if test="${sessionScope.username!=null}">
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a></li>	
+		</c:if>
 		</ul>
 	</div>
 	</nav> 
@@ -35,9 +45,11 @@
 	<div class="jumbotron">
 	<h1>Welcome to The Apartments..</h1>
 	<p>View your next Dream Home</p>
-	<p>${username}</p>
+	<c:if test="${sessionScope.username != null}">
+    <p>Hi ${username}, now you can add new apartments ...</p>
 	<br>
 	<a href="${pageContext.request.contextPath}/newapartment"><button type="button" class="btn btn-primary">Add new Apartment</button></a>
+	</c:if>
 	</div>
 	
 	</div>

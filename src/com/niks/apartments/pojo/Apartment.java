@@ -31,18 +31,12 @@ public class Apartment {
 	private String imagepath;
 	@Column(name="rent")
 	private String rent;
+//	@Column(name="user_id")
+//	private int userid;
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="apartment_id")
-	private List<Review> reviews;
 	
-	public void addReview(Review review){
-		if(reviews==null){
-			reviews=new ArrayList<Review>();
-		}
-		
-		reviews.add(review);
-	}
+	
+	
 	
 	public int getId() {
 		return id;
@@ -80,20 +74,30 @@ public class Apartment {
 	public void setRent(String rent) {
 		this.rent = rent;
 	}
-	
-	public List<Review> getReviews() {
-		return reviews;
-	}
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
-
 	@Override
 	public String toString() {
-		return String.format(
-				"Apartment [id=%s, title=%s, description=%s, address=%s, imagepath=%s, rent=%s, reviews=%s]", id, title,
-				description, address, imagepath, rent, reviews);
+		return String.format("Apartment [id=%s, title=%s, description=%s, address=%s, imagepath=%s, rent=%s]", id,
+				title, description, address, imagepath, rent);
 	}
+	
+	
+	
+//	public int getUserid() {
+//		return userid;
+//	}
+//
+//	public void setUserid(int userid) {
+//		this.userid = userid;
+//	}
+//	@Override
+//	public String toString() {
+//		return String.format(
+//				"Apartment [id=%s, title=%s, description=%s, address=%s, imagepath=%s, rent=%s, userid=%s]", id, title,
+//				description, address, imagepath, rent, userid);
+//	}
+	
+
+	
 	
 	
 	

@@ -27,12 +27,10 @@ public class User {
 	private String password;
 	@Column(name="email")
 	private String email;
-	@OneToMany(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="user_id")
 	private List<Apartment> apartments;
-//	@OneToMany(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch=FetchType.EAGER)
-//	@JoinColumn(name="user_id")
-//	private List<Review> reviews;
+	
 	
 	public void addApartment(Apartment apartment){
 		if(apartments==null){
@@ -41,12 +39,7 @@ public class User {
 		apartments.add(apartment);
 	}
 	
-//	public void addReview(Review review){
-//		if(reviews==null){
-//			reviews=new ArrayList<Review>();
-//		}
-//		reviews.add(review);
-//	}
+
 
 	public int getId() {
 		return id;
@@ -94,14 +87,7 @@ public class User {
 				email, apartments);
 	}
 
-//	public List<Review> getReviews() {
-//		return reviews;
-//	}
-//
-//	public void setReviews(List<Review> reviews) {
-//		this.reviews = reviews;
-//	}
-
+	
 	
 	
 	
