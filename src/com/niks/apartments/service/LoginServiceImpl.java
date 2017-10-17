@@ -18,4 +18,10 @@ public class LoginServiceImpl implements LoginService {
 		userDao.saveUser(user);
 	}
 
+	@Override
+	@Transactional
+	public boolean authenticateUser(String username, String password) {
+		return userDao.authenticateUser(username,password);
+	}
+
 }

@@ -36,7 +36,19 @@
 	<div class="container">
 	<h1>Sign In</h1>
 	<hr>
+	<form:form method="post" modelAttribute="user">
+	<div class="form-group">
+	<form:label for="username" path="username">Username</form:label>
+	<form:input path="username" id="username" cssClass="form-control" type="text"/>
+	<div class="form-group">
+	<form:label for="password" path="password">Password</form:label>
+	<form:input path="password" id="password" cssClass="form-control" type="password"/>
+	</div>
+	<br>
+	<button type="submit" class="btn btn-success">Sign In</button>
 	
+	
+	</form:form>
 	
 	</div>
 

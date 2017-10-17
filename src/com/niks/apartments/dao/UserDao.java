@@ -6,4 +6,6 @@ public interface UserDao {
 
 	public void saveUser(User user);
 
+	public boolean authenticateUser(String username, String password);
+
 }

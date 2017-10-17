@@ -30,6 +30,17 @@
 	</div>
 	</nav> 
 	</section>
+	<section id="welcome-cover">
+	<div class="container">
+	<div class="jumbotron">
+	<h1>Welcome to The Apartments..</h1>
+	<p>View your next Dream Home</p>
+	<p>${username}</p>
+	</div>
+	
+	</div>
+	
+	</section>
 
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
