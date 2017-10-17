@@ -24,4 +24,10 @@ public class LoginServiceImpl implements LoginService {
 		return userDao.authenticateUser(username,password);
 	}
 
+	@Override
+	@Transactional
+	public boolean checkForDuplicateUsername(String checkUsername) {
+		return userDao.checkForDuplicateUsername(checkUsername);
+	}
+
 }

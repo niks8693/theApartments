@@ -41,6 +41,7 @@
 	<form:label for="username" path="username">Username</form:label>
 	<form:input path="username" id="username" cssClass="form-control" type="text"/>
 	</div>
+	<p style="color:red;">${errorMsg}</p>
 	<div class="form-group">
 	<form:label for="email" path="email">Email</form:label>
 	<form:input path="email" id="email" cssClass="form-control" type="email"/>
@@ -54,6 +55,7 @@
 	
 	
 	</form:form>
+	
 	
 	</div>
 

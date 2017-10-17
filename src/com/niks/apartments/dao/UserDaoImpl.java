@@ -24,6 +24,8 @@ public class UserDaoImpl implements UserDao {
 		System.out.println("Saving user from UserDao.saveUser()-->"+user.toString());
 		session.save(user);
 		System.out.println("User saved");
+		
+		
 	}
 
 	@Override
@@ -42,6 +44,24 @@ public class UserDaoImpl implements UserDao {
 		else{
 			return false;
 		}
+	}
+
+	@Override
+	public boolean checkForDuplicateUsername(String checkUsername) {
+		Session session=sessionFactory.getCurrentSession();
+		String hql="from User as u where u.username=?";
+		Query query=session.createQuery(hql);
+		query.setParameter(0, checkUsername);
+		List<User> list=query.getResultList();
+		
+		if(list!=null && list.size()>0){
+			System.out.println("Duplicate User found using checkForDuplicateUsername()-->"+ list);
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 }

@@ -8,4 +8,6 @@ public interface UserDao {
 
 	public boolean authenticateUser(String username, String password);
 
+	public boolean checkForDuplicateUsername(String checkUsername);
+
 }

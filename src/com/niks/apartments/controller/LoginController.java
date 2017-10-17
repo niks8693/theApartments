@@ -30,9 +30,20 @@ public class LoginController {
 	}
 	
 	@PostMapping("/signup")
-	public String processSignup(@ModelAttribute("user") User user){
+	public String processSignup(@ModelAttribute("user") User user,Model model){
 		System.out.println("User from processSignup()-->"+user.toString());
-		loginService.saveUser(user);
+		String checkUsername=user.getUsername();
+		//check if username already present
+		boolean isDuplicate=loginService.checkForDuplicateUsername(checkUsername);
+		if(isDuplicate){
+			String errorMsg="Duplicate username, please enter different username to sign up";
+			model.addAttribute("errorMsg", errorMsg);
+			return "signup";
+		}
+		else{
+			loginService.saveUser(user);
+		}
+		
 		
 		return "redirect:/signin";
 	}
