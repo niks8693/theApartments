@@ -51,6 +51,21 @@
 	<a href="${pageContext.request.contextPath}/newapartment"><button type="button" class="btn btn-primary">Add new Apartment</button></a>
 	</c:if>
 	</div>
+	<div class="row">
+	<c:forEach items="${apartments}" var="apartment">
+					<div class="col-md-4">
+						<div class="card" style="width: 20rem;margin:10px 10px;">
+							<img class="card-img-top" src="${apartment.imagepath}" alt="${apartment.title}">
+							<div class="card-body">
+								<h4 class="card-title">${apartment.title}</h4>
+								<p class="card-text">${apartment.address}</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+	</div>
+	
 	
 	</div>
 	
