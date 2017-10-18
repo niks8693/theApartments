@@ -28,4 +28,10 @@ public class ApartmentServiceImpl implements ApartmentService {
 		return apartmentDao.getApartments();
 	}
 
+	@Override
+	@Transactional
+	public Apartment getApartmentById(int id) {
+		return apartmentDao.getApartmentById(id);
+	}
+
 }

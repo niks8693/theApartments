@@ -1,12 +1,14 @@
 package com.niks.apartments.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -41,6 +43,16 @@ public class ApartmentController {
 		user.addApartment(apartment);
 		userService.updateUser(user);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/apartments/{id}")
+	public String showApartmentDetails(@PathVariable("id") int id,Model model){
+		int apartmentId=id;
+		System.out.println("Showing details for Apartment with Id-->"+apartmentId);
+		Apartment apartment= apartmentService.getApartmentById(id);
+		model.addAttribute("apartment", apartment);
+		
+		return "apartment-details";
 	}
 
 }

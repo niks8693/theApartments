@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>Apartment Details</title>
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -40,34 +40,23 @@
 	</div>
 	</nav> 
 	</section>
-	<section id="welcome-cover">
+	<section id="show-details">
 	<div class="container">
 	<div class="jumbotron">
-	<h1>Welcome to The Apartments..</h1>
-	<p>View your next Dream Home</p>
-	<c:if test="${sessionScope.username != null}">
-    <p>Hi ${username}, now you can add new apartments ...</p>
-	<br>
-	<a href="${pageContext.request.contextPath}/newapartment"><button type="button" class="btn btn-primary">Add new Apartment</button></a>
-	</c:if>
-	</div>
-	<div class="row">
-	<c:forEach items="${apartments}" var="apartment">
-					<div class="col-md-4">
-						<div class="card" style="width: 20rem;margin:10px 10px;">
-							<img class="card-img-top" src="${apartment.imagepath}" alt="${apartment.title}">
-							<div class="card-body">
-								<h4 class="card-title">${apartment.title}</h4>
-								<p class="card-text">${apartment.address}</p>
-								<a href="${pageContext.request.contextPath}/apartments/${apartment.id}">
-								<button class="btn btn-primary">View Details</button></a>
-							</div>
+
+				<div class="container">
+					<div class="card" style="width: 100%;">
+						<img class="card-img-top" src="${apartment.imagepath }" alt="${apartment.title }">
+						<div class="card-body">
+							<h4 class="card-title">${apartment.title}<span class="float-right">${apartment.rent}$/month</span></h4>
+							<p>${apartment.address}</p>
+							<p class="card-text">${apartment.description}</p>
+							
 						</div>
 					</div>
-				</c:forEach>
-	</div>
-	
-	
+				</div>
+
+			</div>
 	</div>
 	
 	</section>

@@ -10,4 +10,6 @@ public interface ApartmentService {
 
 	public List<Apartment> getApartments();
 
+	public Apartment getApartmentById(int id);
+
 }

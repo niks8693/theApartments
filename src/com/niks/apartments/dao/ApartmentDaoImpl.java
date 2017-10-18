@@ -40,4 +40,17 @@ public class ApartmentDaoImpl implements ApartmentDao {
 		}
 	}
 
+	@Override
+	public Apartment getApartmentById(int id) {
+		Session session=sessionFactory.getCurrentSession();
+		Apartment apartment=session.get(Apartment.class, id);
+		if(apartment!=null){
+			System.out.println("Apartment Retreived is--->"+apartment.toString());
+			return apartment;
+		}
+		else{
+			return null;
+		}
+	}
+
 }
